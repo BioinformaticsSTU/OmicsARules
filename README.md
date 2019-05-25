@@ -50,7 +50,7 @@ Table 1 : An example supermarket database with five transactions.
 ## What is lamda?
     Lamda is a new measure to indicates the significance and interest of rules. This measure not only use binary data, but also continuous variables to overcome the shortcoming of loss of information that other association rules mining algorithms(ARM) used to have.
 
-<img src=""  width="600" height="450" />
+<img src="img/LAMDA.png"  width="600" height="450" />
 
 ## Data discretization
     The uploading data is preferable to be a binary dataset containing interested genes. Alternatively, if the input dataset contains continuous variable, users should first identify the interesting genes according to their own measures. For example, for mRNA profiling data, the genes can be selected and sorted by P values from differential expression analysis. OmicsARules provides four cutoff values to discretize the continuous values into binary matrix, namely mean, median, P25 (the upper quartile), P75 (the lower quartile). OmicsARules calculates one of these cutoff values (according to the user's choice) in each column, and if the values in each gene of a particular sample larger than the cutoff value, this value would be transformed into 1, otherwise, 0 is used. 
@@ -86,13 +86,13 @@ An example of the common rules.
 ## Group based demonstration 
 To visualize the grouped matrix, a balloon plot (Figure 1) was created with antecedent groups as columns (LHS) and consequents as rows (RHS). The idea is that genes on the left side of several rules, which are statistically dependent on the same gene on the right side, are supposed to be similar and thus can be grouped together. We start with the set of association rules: R = { a1 , c1 , m1 , . . . ai , ci , mi , . . . an , cn , mn }, where ai is the gene or gene set on the LHS, ci is the gene on the RHS and mi is the selected interest measure (default: lift) for the i-th rule for i = 1, . . . , n. Consequently, a L × K matrix M in R with one column for each unique antecedent and one row for each unique consequent was identified and created. The color of balloons represent the lift of rules and the size of balloons represent the support of rules. For instance, one of column names, '3 rules: {HS3ST4, KCNMB1}', indicated that this particular rule with either one or two genes on the LHS was appeared in 3 rules, with three different genes on the RHS (namely SYNPO2, LMOD1 and MYH11). 
 
-<img src=""  width="600" height="450" />
+<img src="img/group.png"  width="600" height="450" />
 Group plot of association rules
 
 ## Graph based demonstration  
 This method visualizes association rules using vertices typically represent genes or gene sets and edges indicate their relationship in rules.
 
-<img src=""  width="600" height="450" />
+<img src="img/graph.png"  width="600" height="450" />
 Graph plot of association rules
 
 
