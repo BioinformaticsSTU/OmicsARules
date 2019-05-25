@@ -5,6 +5,24 @@ tool for the analysis of multimodal high-throughput data
 ## Introduction
 OmicsARules is a tool for the analysis of multimodal high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
 
+## Installation
+
+Dependencies should be installed firstly.
+```
+install.packages("arules");
+install.packages("tcltk");
+install.packages("ggplot2");
+install.packages("igraph");
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager");
+BiocManager::install("GOSim");
+```
+
+After requirement is satisfied, you can install omicsArules by running command below.
+```
+install.packages("omicsArules_0.0.1.tar.gz");
+```
+
 ## Frequent itemsets and assoication rule
 
 In data mining field, the frequently co-occurring items are called frequent item sets and their associated relationship is named assoication rule. Originated from market basket data analysis, association rules is a popular and well researched method for discovering strong relationship exists between two frequent items[4].
