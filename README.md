@@ -31,7 +31,7 @@ Lamda3 is a new measure to indicates the significance and interest of rules. Thi
 
 ## Data discretization
 
-The uploading data is preferable to be a binary dataset containing interested genes. Alternatively, if the input dataset contains continuous variable, users should firstly identify the interesting genes according to their own measures. For example, for mRNA profiling data, the genes can be selected and sorted by P values from differential expression analysis. OmicsARules provides four cutoff values to discretize the continuous values into binary matrix, namely mean, median, P25 (the upper quartile), P75 (the lower quartile). OmicsARules calculates one of these cutoff values (according to the user's choice) in each column, and if the values in each gene of a particular sample larger than the cutoff value, this value would be transformed into 1, otherwise, 0 is used. 
+Data is preferable to be a binary dataset containing interested genes. Alternatively, if the input dataset contains continuous variable, users should firstly identify the interesting genes according to their own measures. For example, for mRNA profiling data, the genes can be selected and sorted by P values from differential expression analysis. OmicsARules provides four cutoff values to discretize the continuous values into binary matrix, namely mean, median, P25 (the upper quartile), P75 (the lower quartile) and del-outliers (mean after delete outliers). OmicsARules calculates one of these cutoff values (according to the user's choice) in each column, and if the values in each gene of a particular sample larger than the cutoff value, this value would be transformed into 1, otherwise, 0 is used. 
 
 ## Result example
 
