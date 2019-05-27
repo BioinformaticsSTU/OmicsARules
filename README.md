@@ -48,20 +48,19 @@ In this example, association rules analysis was performed on ESCA mRNA expressio
 
 ## Mining association rule conserved across multiple omics datasets
 
-Regarding multi-omics datasets, for example, both mRNA expression and DNA methylation datasets retrieved from the same cohort, each dataset was separately subjected to the preprocess step such as differential expression analysis and discretization. Then these two binary datasets were combined according the sample IDs, and then subjected to OmicsARules association mining. In order to discriminate sources of genes, suffix '.1' or '.2' was added behind the gene symbol, while the former indicated genes were present in the mRNA dataset; and the latter indicated genes were from the DNA methylation. Finally, rule-interestingness measures, namely Lift and Lamda3, as well as Wcs (weighted condensed support), were calculated to rank the rules.
+Regarding multi-omics datasets, for example, both mRNA expression and DNA methylation datasets retrieved from the same cohort, each dataset was separately subjected to the preprocess step such as differential expression analysis and discretization. Then these two binary datasets were combined according the sample IDs, and then subjected to OmicsARules association mining. In order to discriminate sources of genes, suffix '.1' or '.2' was added behind the gene symbol, while the former indicated genes were present in the mRNA dataset; and the latter indicated genes were from the DNA methylation. Finally, rule-interestingness measures, namely Lift and Lamda3,  were calculated to rank the rules.
 
 ```
 lhs	rhs	support	confidence	lift	lamda3
-1	{CDKN3.1,A1BG.2}	{CDC20.1}	0.396	0.811	1.448	0
-2	{CDKN3.1,A1CF.2}	{CDC20.1}	0.396	0.811	1.448	0
-3	{NEK2.1,AADACL3.2}	{UBE2T.1}	0.423	0.804	1.541	0
-4	{UBE2T.1,AADACL2.2}	{NEK2.1}	0.423	0.812	1.541	0
-5	{KIF2C.1,AADACL3.2}	{CDC20.1}	0.456	0.848	1.515	0
-6	{CDC20.1,AADACL3.2}	{KIF2C.1}	0.456	0.815	1.515	0
-7	{CDKN3.1,AADAT.2}	{CDC20.1}	0.396	0.811	1.448	0
-
+1	{CDKN3.1,A1BG.2}	{CDC20.1}	0.396	0.811	1.448	339.357
+2	{CDKN3.1,A1CF.2}	{CDC20.1}	0.396	0.811	1.448	339.357
+3	{NEK2.1,AADACL3.2}	{UBE2T.1}	0.423	0.804	1.541	6.447
+4	{UBE2T.1,AADACL2.2}	{NEK2.1}	0.423	0.812	1.541	6.447
+5	{KIF2C.1,AADACL3.2}	{CDC20.1}	0.456	0.848	1.515	35.493
+6	{CDC20.1,AADACL3.2}	{KIF2C.1}	0.456	0.815	1.515	35.493
+7	{CDKN3.1,AADAT.2}	{CDC20.1}	0.396	0.811	1.448	38.605
 ```
-An example of the common rules.
+An example of the identical rules.
 
 ## Group based demonstration 
 
