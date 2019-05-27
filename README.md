@@ -1,9 +1,9 @@
 # OmicsARules
-tool for the analysis of multimodal high-throughput data
+a R package for integration of multi-omics datasets via association rules mining
 
 
 ## Introduction
-OmicsARules is a tool for the analysis of multimodal high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
+OmicsARules is a tool for the analysis of multi-omics high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Besides, a new rule-interestingness measure Lamda3 was Embeded, it can be used to evaluate the association rules and identify biologically significant patterns. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
 
 ## Installation
 
@@ -68,9 +68,9 @@ You can select n top-ranked gene and use these genes to have process run, you ar
 
 Maxlen means the maximum size of the rule, and minlen means the minimum size of the rule, that is LHS plus RHS. 
 
-## What is lamda?
+## What is lamda3?
 
-Lamda is a new measure to indicates the significance and interest of rules. This measure not only use binary data, but also continuous variables to overcome the shortcoming of loss of information that other association rules mining algorithms(ARM) used to have.
+Lamda3 is a new measure to indicates the significance and interest of rules. This measure not only use binary data, but also continuous variables to overcome the shortcoming of loss of information that other association rules mining algorithms(ARM) used to have.
 
 <img src="img/LAMDA.png"  width="800" height="900" />
 
@@ -83,7 +83,7 @@ The uploading data is preferable to be a binary dataset containing interested ge
 This association rules analysis was performed on ESCA mRNA expression (support=0.4 and confidence=0.8). The dataset contains 184 patients and the top-2000 DEGs. Interestingly, some well-known relationships between genes were observed. For instance, a particular rule {CDK1}==>{CCNB2} was identified with support 0.435, confidence 0.808 and lift 1.416. From biological viewpoint, this rule means co-occurrence of CDK1 and CCNB2 dysregulation in mRNA expression happened on more than 40% ESCA patients [the actual frequency: supp(CDK1 ∪ CCNB2 )=43.5%]. In view of confidence, when CDK1 was dysregulated, the possibility of simultaneously altered CCNB2 expression was 80.8% [supp(CDK1)=99/184=53.8%; supp(CDK1 ∪ CCNB2)==80/184=43.5%; supp(CDK1 ∪ CCNB2 )/supp(CDK1)=80.8%]. As for another measure lift, compared to possibility of random events, that is, dysregulation of CDK1 was independent of CCNB1 [supp(CDK1)=53.8%; supp(CCNB2)=105/184=57.1%; supp(CDK1)×supp(CCNB2)=30.7%], their co-dysregulation was 1.416 times more frequent [supp(CDK1 ∪ CCNB2)/(supp(CDK1) ×upp(CCCNB2))=1.416].
 
 ```
- lhs rhs support confidence lift lamda 
+ lhs rhs support confidence lift lamda3 
 1 {ZNF329} {ZNF793} 0.347 0.82 1.65 11.49  
 2 {TAP1} {PSMB9} 0.413 0.883 1.711 21.445  
 3 {PSMB9} {TAP1} 0.413 0.8 1.711 14.723  
@@ -126,5 +126,5 @@ Graph plot of association rules
 # License
 ----------------------------
 
-TGStools is released under the MIT license.
+OmicsARules is released under the MIT license.
 
