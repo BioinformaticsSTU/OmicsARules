@@ -1,9 +1,9 @@
 # OmicsARules
-a R package for integration of multi-omics datasets via association rules mining
+A R package for integration of multi-omics datasets via association rules mining.
 
 
 ## Introduction
-OmicsARules is a tool for the analysis of multi-omics high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Besides, a new rule-interestingness measure Lamda3 was embeded, it can be used to evaluate the association rules and identify biologically significant patterns. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
+OmicsARules is a tool for the analysis of multi-omics high-throughput data based on the use of association rules mining. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Besides, a new rule-interestingness measure Lamda3 is embeded in OmicsARules, it can be used to evaluate the association rules and identify biologically significant patterns. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
 
 ## Installation
 
@@ -25,17 +25,17 @@ install.packages("omicsArules_0.0.1.tar.gz");
 
 ## What is lamda3?
 
-Lamda3 is a new measure to indicates the significance and interest of rules. Lamda3 minimized the loss of information due to dichotomization, achieved better biological significance over other rule-ranking measures.
+Lamda3 is a new measure to indicate the significance and interest of rules. Lamda3 minimized the loss of information due to dichotomization, and achieves better biological significance over other rule-ranking measures.
 
 <img src="img/LAMDA.png"  width="800" height="900" />
 
 ## Data discretization
 
-OmicsARules not only works on continuous datasets, binary dataset containing interested genes is also needed. If the input dataset contains continuous variable, users should firstly identify the interesting genes according to their own measures. For example, for mRNA profiling data, the genes can be selected and sorted by P values from differential expression analysis. OmicsARules provides five cutoff values to discretize the continuous values into binary matrix, namely mean, median, P25 (the upper quartile), P75 (the lower quartile) and del-outliers (mean after delete outliers). OmicsARules calculates one of these cutoff values (according to the user's choice) in each column, and if the values in each gene of a particular sample larger than the cutoff value, this value would be transformed into 1, otherwise, 0 is used. 
+OmicsARules not only works on continuous datasets, binary dataset containing interested genes is also needed. If the input dataset contains continuous variable, users should firstly identify the interesting genes according to their own measures. For example, for mRNA profiling data, the genes can be selected and sorted by P values from differential expression analysis. OmicsARules provides five cutoff values to discretize the continuous values into binary matrix, namely mean, median, P25 (the upper quartile), P75 (the lower quartile) and del-outliers (mean after deleting outliers). OmicsARules calculates one of these cutoff values (according to the user's choice) in each column, and if the values in each gene of a particular sample larger than the cutoff value, this value would be transformed into 1, otherwise 0. 
 
 ## Result example
 
-In this example, association rules analysis was performed on ESCA mRNA expression (support=0.4 and confidence=0.8). The dataset contains 184 patients and the top-2000 DEGs. Interestingly, some well-known relationships between genes were observed. For instance, a particular rule {TAP1}==>{PSMB9} was identified with support 0.413, confidence 0.883, lift 1.711 and lamda3 21.445. From biological viewpoint, this rule means co-occurrence of TAP1 and PSMB9 dysregulation in mRNA expression happened on more than 40% ESCA patients [the actual frequency: supp(TAP1 ∪ PSMB9 )=41.3%]. In view of confidence, when TAP1 was dysregulated, the possibility of simultaneously altered PSMB9 expression was 88.3% . As for another measure lift, compared to possibility of random events, that is, dysregulation of TAP1 was independent of PSMB9, their co-dysregulation was 1.711 times more frequent.
+In this example, association rules analysis was performed on ESCA mRNA expression. The dataset contains 184 patients and the top-2000 DEGs. Interestingly, some well-known relationships between genes were observed. For instance, a particular rule {TAP1}==>{PSMB9} was identified with support 0.413, confidence 0.883, lift 1.711 and lamda3 21.445. From biological viewpoint, this rule means co-occurrence of TAP1 and PSMB9 dysregulation in mRNA expression happened on more than 40% ESCA patients [the actual frequency: supp(TAP1 ∪ PSMB9 )=41.3%]. In view of confidence, when TAP1 was dysregulated, the possibility of simultaneously altered PSMB9 expression was 88.3% . As for another measure lift, compared to possibility of random events, that is, dysregulation of TAP1 was independent of PSMB9, their co-dysregulation was 1.711 times more frequent.
 
 ```
  lhs rhs support confidence lift lamda3 
