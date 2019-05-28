@@ -3,7 +3,7 @@ a R package for integration of multi-omics datasets via association rules mining
 
 
 ## Introduction
-OmicsARules is a tool for the analysis of multi-omics high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Besides, a new rule-interestingness measure Lamda3 was Embeded, it can be used to evaluate the association rules and identify biologically significant patterns. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
+OmicsARules is a tool for the analysis of multi-omics high-throughput data based on the use of association rules. OmicsARules supports to identify recurrent and associated patterns, and provides a new dimension for exploring single or multiple omics data across sequencing platforms or across samples. Besides, a new rule-interestingness measure Lamda3 was embeded, it can be used to evaluate the association rules and identify biologically significant patterns. Association rule mining and visualizing were implemented in R environment using package arules and ggplot2.
 
 ## Installation
 
@@ -25,7 +25,7 @@ install.packages("omicsArules_0.0.1.tar.gz");
 
 ## What is lamda3?
 
-Lamda3 is a new measure to indicates the significance and interest of rules. This measure not only use binary data, but also continuous variables to overcome the shortcoming of loss of information that other association rules mining algorithms(ARM) used to have rule-ranking measures.
+Lamda3 is a new measure to indicates the significance and interest of rules. Lamda3 minimized the loss of information due to dichotomization, achieved better biological significance over other rule-ranking measures.
 
 <img src="img/LAMDA.png"  width="800" height="900" />
 
@@ -64,7 +64,7 @@ An example of the identical rules.
 
 ## Group based demonstration 
 
-To visualize the grouped matrix, a balloon plot was created with antecedent groups as columns (LHS) and consequents as rows (RHS). The idea is that genes on the left side of several rules, which are statistically dependent on the same gene on the right side, are supposed to be similar and thus can be grouped together. We start with the set of association rules: R = { a1 , c1 , m1 , . . . ai , ci , mi , . . . an , cn , mn }, where ai is the gene or gene set on the LHS, ci is the gene on the RHS and mi is the selected interest measure (default: lift) for the i-th rule for i = 1, . . . , n. Consequently, a L × K matrix M in R with one column for each unique antecedent and one row for each unique consequent was identified and created. The color of balloons represent the lift of rules and the size of balloons represent the support of rules.  
+To visualize the grouped matrix, a balloon plot was created with antecedent groups as columns (LHS) and consequents as rows (RHS). The idea is that genes on the left side of several rules, which are statistically dependent on the same gene on the right side, are supposed to be similar and thus can be grouped together. We start with the set of association rules: R = { a1 , c1 , m1 , . . . ai , ci , mi , . . . an , cn , mn }, where ai is the gene or gene set on the LHS, ci is the gene on the RHS and mi is the selected interest measure (default: lift) for the i-th rule for i = 1, . . . , n. Consequently, a L × K matrix M in R with one column for each unique antecedent and one row for each unique consequent was identified and created. The color of balloons represent the lift of rules and the size of balloons represent the lamda3 of rules.  
 
 <img src="img/group.png"  width="700" height="450" />
 Group plot of association rules
